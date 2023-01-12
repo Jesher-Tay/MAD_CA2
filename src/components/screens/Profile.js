@@ -3,9 +3,10 @@ import { Text, View, TextInput, Image, SafeAreaView, ScrollView } from 'react-na
 import { EvilIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons'; 
 import { styled } from 'nativewind';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import CardRow from '../CardRow.js';
 
@@ -49,31 +50,38 @@ function ReviewScreen() {
 }
 
 function WishListScreen() {
+  const navigation = useNavigation();
   return (
     <ScrollView 
       scrollEventThrottle={16}
       contentContainerStyle={{flexDirection: 'row', justifyContent: 'space-between', flexWrap:'wrap'}}
       className='overflow-scroll'>
-        <View className='w-48 h-56 border-[#888888] border-2 rounded-lg'>
-          <Image className='w-full h-2/3' source={require('../../../Images/pasta2.jpg')}/>
-          <Text className='text-lg'>Pasta2</Text>
-          <Text className='test-base'>Penis Joke here</Text>
-        </View>
-        <View className='w-48 h-56 border-[#888888] border-2 rounded-lg'>
-          <Image className='w-full h-2/3' source={require('../../../Images/pasta2.jpg')}/>
-          <Text className='text-lg'>Pasta2</Text>
-          <Text className='test-base'>Penis Joke here</Text>
-        </View>
-        <View className='w-48 h-56 border-[#888888] border-2 rounded-lg'>
-          <Image className='w-full h-2/3' source={require('../../../Images/pasta2.jpg')}/>
-          <Text className='text-lg'>Pasta2</Text>
-          <Text className='test-base'>Penis Joke here</Text>
-        </View>
-        <View className='w-48 h-56 border-[#888888] border-2 rounded-lg'>
-          <Image className='w-full h-2/3' source={require('../../../Images/pasta2.jpg')}/>
-          <Text className='text-lg'>Pasta2</Text>
-          <Text className='test-base'>Penis Joke here</Text>
-        </View>
+        <TouchableOpacity className='w-48 h-56 border-[#888888] border-2 rounded-lg' onPressOut={() =>  navigation.navigate('WishList')}>
+            <Image className='w-full h-2/3' source={require('../../../Images/pasta2.jpg')}/>
+            <Text className='text-lg'>Pasta2</Text>
+            <Text className='test-base'></Text>
+        </TouchableOpacity>
+        <TouchableOpacity className='' onPress={() =>  navigation.navigate('WishList')}>
+          <View className='w-48 h-56 border-[#888888] border-2 rounded-lg'>
+            <Image className='w-full h-2/3' source={require('../../../Images/pasta2.jpg')}/>
+            <Text className='text-lg'>Pasta2</Text>
+            <Text className='test-base'>Penis Joke here</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity className='' onPress={() =>  navigation.navigate('WishList')}>
+          <View className='w-48 h-56 border-[#888888] border-2 rounded-lg'>
+            <Image className='w-full h-2/3' source={require('../../../Images/pasta2.jpg')}/>
+            <Text className='text-lg'>Pasta2</Text>
+            <Text className='test-base'>Penis Joke here</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity className='' onPress={() =>  navigation.navigate('WishList')}>
+          <View className='w-48 h-56 border-[#888888] border-2 rounded-lg'>
+            <Image className='w-full h-2/3' source={require('../../../Images/pasta2.jpg')}/>
+            <Text className='text-lg'>Pasta2</Text>
+            <Text className='test-base'>Penis Joke here</Text>
+          </View>
+        </TouchableOpacity>
     </ScrollView>
   );
 }

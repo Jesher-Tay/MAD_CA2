@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Explore, Eatery } from '../screens';
+import { Explore, Eatery, WishList } from '../screens';
 import { Entypo } from '@expo/vector-icons';
 
 function StackNavigator() {
@@ -12,6 +12,11 @@ function StackNavigator() {
           headerShown: false,
         }} />
       <Stack.Screen name='Eatery' component={Eatery}
+        options={{
+          headerBackImage: () => <Entypo name='chevron-left' size={32} color='black' />,
+          headerBackTitleVisible: false,
+        }} />
+      <Stack.Screen name='WishList' component={WishList}
         options={{
           headerBackImage: () => <Entypo name='chevron-left' size={32} color='black' />,
           headerBackTitleVisible: false,

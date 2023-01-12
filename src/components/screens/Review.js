@@ -9,7 +9,7 @@ export default function Review() {
     const [image, setImage] = useState(null);
     const [invisible, setInvisible] = useState(true);
     const [measurement, setMeasurements] = useState({width: 0, height: 0, x: 0, y: 0});
-    var chicken = measurement.measurement.width;
+    let chicken = 1;
     console.log(chicken);
 
     const pickImage = async () => {
@@ -36,13 +36,13 @@ export default function Review() {
                         measurement: nativeEvent.layout
                         })
                     }} 
-                        className='flex-row justify-center w-1/3' style={{height: chicken}}>
+                        className='flex-row justify-center w-1/4' style={{height: chicken}}>
                         <TouchableOpacity className='flex-row items-center justify-center w-full h-full bg-[#888888]' style={{width: chicken, height: chicken}} onPress={pickImage}>
                             {invisible && <Entypo className='' name="camera" size={24} color="black" />}
-                            {image && <Image source={{ uri: image }} className='w-32 h-32 rounded-lg' />}
+                            {image && <Image source={{ uri: image }} className='w-full h-full rounded-lg' />}
                         </TouchableOpacity>
                     </View>
-                    <View className='flex-row items-center p-2 w-2/3'>
+                    <View className='flex-row items-center p-2 w-3/4'>
                         <TextInput maxLength={50} placeholder='Title' className='text-base font-semibold w-full h-full'/>
                     </View>
                 </View>
@@ -53,8 +53,12 @@ export default function Review() {
                     <TextInput className='w-full h-full' multiline={true} placeholder='Description'/>
                 </View>
                 <View className='p-2 h-20'>
-                    <TouchableOpacity className='w-full h-full'>
-                        <Text>Add to Wish List</Text>
+                    <TouchableOpacity className='w-full h-full flex-row items-center justify-between'>
+                        <View className='flex-row items-center'>
+                            <Text className='font-bold text-base px-2'>Add to Wish List</Text>
+                            <Text className='font-light'>Select List</Text>
+                        </View>
+                        <Entypo name="chevron-right" size={32} color="black" />
                     </TouchableOpacity>
                 </View>
             </View>

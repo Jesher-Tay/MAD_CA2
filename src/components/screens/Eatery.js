@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
-export default function Eatery(props) {
+export default function Eatery() {
   // remove tab when click on stack navigator
   const navigation = useNavigation();
   useEffect (() => {

@@ -1,11 +1,8 @@
 import React from 'react';
 import { Text, View, TextInput, Image, SafeAreaView, ScrollView } from 'react-native';
-import { EvilIcons } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons'; 
-import { styled } from 'nativewind';
-import { NavigationContainer } from '@react-navigation/native';
-
+import { EvilIcons, Ionicons, Entypo, MaterialIcons, Feather } from '@expo/vector-icons';
 import CardRow from '../CardRow.js';
+import CardRowTemp from '../CardRowTemp.js'; 
 
 export default function Explore() {
   return (
@@ -21,7 +18,7 @@ export default function Explore() {
             scrollEventThrottle={16}
             className='h-[89%] overflow-scroll'
             >
-            <CardRow
+            <CardRowTemp
               name={"Popular in"}
               name2={"Current Location"}
               imageUri={require('../../../Images/nandos.jpg')}
