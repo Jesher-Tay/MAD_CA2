@@ -9,7 +9,6 @@ import { Text, View, TextInput, Image, SafeAreaView, ScrollView } from 'react-na
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-
 import 'react-native-gesture-handler';
 
 import BottomNav from './src/components/navigations/BottomNav.js';
