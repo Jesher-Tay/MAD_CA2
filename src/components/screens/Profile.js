@@ -59,27 +59,27 @@ function WishListScreen() {
         <TouchableOpacity className='w-48 h-56 border-[#888888] border-2 rounded-lg' onPressOut={() =>  navigation.navigate('WishList')}>
             <Image className='w-full h-2/3' source={require('../../../Images/pasta2.jpg')}/>
             <Text className='text-lg'>Pasta2</Text>
-            <Text className='test-base'></Text>
+            <Text className='test-base'>Test</Text>
         </TouchableOpacity>
         <TouchableOpacity className='' onPress={() =>  navigation.navigate('WishList')}>
           <View className='w-48 h-56 border-[#888888] border-2 rounded-lg'>
             <Image className='w-full h-2/3' source={require('../../../Images/pasta2.jpg')}/>
             <Text className='text-lg'>Pasta2</Text>
-            <Text className='test-base'>Penis Joke here</Text>
+            <Text className='test-base'>Test</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity className='' onPress={() =>  navigation.navigate('WishList')}>
           <View className='w-48 h-56 border-[#888888] border-2 rounded-lg'>
             <Image className='w-full h-2/3' source={require('../../../Images/pasta2.jpg')}/>
             <Text className='text-lg'>Pasta2</Text>
-            <Text className='test-base'>Penis Joke here</Text>
+            <Text className='test-base'>Test</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity className='' onPress={() =>  navigation.navigate('WishList')}>
           <View className='w-48 h-56 border-[#888888] border-2 rounded-lg'>
             <Image className='w-full h-2/3' source={require('../../../Images/pasta2.jpg')}/>
             <Text className='text-lg'>Pasta2</Text>
-            <Text className='test-base'>Penis Joke here</Text>
+            <Text className='test-base'>Test</Text>
           </View>
         </TouchableOpacity>
     </ScrollView>
