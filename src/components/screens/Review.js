@@ -8,9 +8,6 @@ import * as ImagePicker from 'expo-image-picker';
 export default function Review() {
     const [image, setImage] = useState(null);
     const [invisible, setInvisible] = useState(true);
-    const [measurement, setMeasurements] = useState({width: 0, height: 0, x: 0, y: 0});
-    let chicken = 1;
-    console.log(chicken);
 
     const pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -31,13 +28,9 @@ export default function Review() {
         <SafeAreaView>
             <View className='flex-col divide-y'>
                 <View className='flex-row w-full p-2' >
-                    <View onLayout={({nativeEvent}) => {
-                      setMeasurements({
-                        measurement: nativeEvent.layout
-                        })
-                    }} 
-                        className='flex-row justify-center w-1/4' style={{height: chicken}}>
-                        <TouchableOpacity className='flex-row items-center justify-center w-full h-full bg-[#888888]' style={{width: chicken, height: chicken}} onPress={pickImage}>
+                    <View
+                        className='justify-center w-1/4 aspect-square'>
+                        <TouchableOpacity className='flex-row items-center justify-center w-full h-full bg-[#888888]' onPress={pickImage}>
                             {invisible && <Entypo className='' name="camera" size={24} color="black" />}
                             {image && <Image source={{ uri: image }} className='w-full h-full rounded-lg' />}
                         </TouchableOpacity>

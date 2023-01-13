@@ -91,11 +91,7 @@ export default function Profile() {
   return (
     <SafeAreaView>
       <View className='flex-col justify-center'>
-        <View className='flex-row border-b-2 h-20 w-full justify-between items-center'>
-          <Text className='text-lg'>@username1234</Text>
-          <EvilIcons name='gear' size={32} color='black'/>
-        </View>
-        <View className='justify-evenly basis-1/3'>
+        <View className='justify-evenly basis-2/5'>
           <View className='w-24 h-24 self-center'>
             <Image className='w-full h-full rounded-full' source={require('../../../Images/Pizza.jpg')}/>
           </View>
@@ -116,7 +112,7 @@ export default function Profile() {
             </View>
           </View>
         </View>
-        <View className='h-96'>
+        <View className='h-3/5'>
             <NavigationContainer independent={true}>
               <Tabs.Navigator>
                 <Tabs.Screen name='Reviews' component={ReviewScreen} />

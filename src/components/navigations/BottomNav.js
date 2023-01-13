@@ -6,7 +6,6 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import StackNavigator from './StackNavigator.js';
 import OtherProfileStackNav from './OtherProfileStackNav';
 import { EvilIcons, Ionicons, Entypo, MaterialIcons, Feather } from '@expo/vector-icons';
-import WishListStackNav from './WishListStackNav';
 
 
 function BottomNav() {
@@ -60,7 +59,14 @@ function BottomNav() {
                 />
             <Tab.Screen name='Profile' component={Profile}
                 options={{
-                    headerShown: false,
+                    headerTitle: '@username1234',
+                    headerRight: () => {
+                        return (
+                            <View className='px-2'>
+                                <TouchableOpacity><EvilIcons name='gear' size={32} color='black'/></TouchableOpacity>
+                            </View>
+                        )
+                    },
                     tabBarIcon: (tabInfo) => {
                         return (
                             <EvilIcons name="user" size={32} color={tabInfo.focused ? "#007AFF" : "#8e8e93"} />
