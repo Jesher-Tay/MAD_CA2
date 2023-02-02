@@ -1,28 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, TextInput, Image, SafeAreaView, ScrollView, Button, Platform } from 'react-native';
+import { Input } from 'native-base';
 import { EvilIcons, Ionicons, Entypo, MaterialIcons, Feather } from '@expo/vector-icons';
+import { useAuth } from '../../../hooks/AuthContext';
 
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import * as ImagePicker from 'expo-image-picker';
+import { uploadBytes, getDownloadURL } from 'firebase/storage';
 
 export default function Review() {
-    const [image, setImage] = useState(null);
-    const [invisible, setInvisible] = useState(true);
+    const { pickImage, image, invisible, caption, setCaption, address, setAddress, desc, setDesc } = useAuth();
 
-    const pickImage = async () => {
-        let result = await ImagePicker.launchImageLibraryAsync({
-            mediaTypes: ImagePicker.MediaTypeOptions.All,
-            quality: 1,
-            allowsEditing: true,
-        });
-
-        console.log(result);
-
-        if (!result.canceled) {
-            setImage(result.assets[0].uri);
-            setInvisible(false);
+    const handleImagePicked = async () => {
+        try {
+            await pickImage();
+        } catch (err) {
+            console.log(err);
         }
-    };
+    }
     
     return(
         <SafeAreaView>
@@ -30,20 +24,42 @@ export default function Review() {
                 <View className='flex-row w-full p-2' >
                     <View
                         className='justify-center w-1/4 aspect-square'>
-                        <TouchableOpacity className='flex-row items-center justify-center w-full h-full bg-[#888888]' onPress={pickImage}>
+                        <TouchableOpacity className='flex-row items-center justify-center w-full h-full bg-[#888888]' onPress={handleImagePicked}>
                             {invisible && <Entypo className='' name="camera" size={24} color="black" />}
                             {image && <Image source={{ uri: image }} className='w-full h-full rounded-lg' />}
                         </TouchableOpacity>
                     </View>
                     <View className='flex-row items-center p-2 w-3/4'>
-                        <TextInput maxLength={50} placeholder='Title' className='text-base font-semibold w-full h-full'/>
+                        <Input
+                            maxLength={50}
+                            placeholder='Caption'
+                            className='text-base font-semibold'
+                            variant='unstyled'
+                            size='2xl'
+                            value={caption}
+                            onChangeText={(text) => setCaption(text)}
+                            />
                     </View>
                 </View>
-                <View className='p-2 h-20'>
-                    <TextInput className='w-full h-full' placeholder='Address'/>
+                <View className='p-2 h-20 justify-center'>
+                    <Input 
+                    className='' 
+                    placeholder='Address'
+                    variant='unstyled'
+                    size='lg'
+                    value={address}
+                    onChangeText={(text) => setAddress(text)}
+                    />
                 </View>
                 <View className='p-2 h-48'>
-                    <TextInput className='w-full h-full' multiline={true} placeholder='Description'/>
+                    <Input 
+                        className='' 
+                        multiline={true} 
+                        placeholder='Description'
+                        size='lg'
+                        variant='unstyled'
+                        value={desc}
+                        onChangeText={(text) => setDesc(text)}/>
                 </View>
                 <View className='p-2 h-20'>
                     <TouchableOpacity className='w-full h-full flex-row items-center justify-between'>

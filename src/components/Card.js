@@ -8,7 +8,7 @@ export default function Card(props) {
     return (
         <TouchableOpacity onPress={() => navigation.navigate("Eatery")} className='flex-col w-52 h-56 border-2 rounded border-[#999999] border-solid mx-1'>
             <View className='flex-1'>
-                <Image className='w-full h-full' source={props.imageUri}/>
+                <Image className='w-full h-full' styles={{height: props.height}} source={props.imageUri}/>
             </View>
             <View className='flex-1 ml-1'>
                 <Text className='text-lg font-bold mt-2.5 mb-0.5'>{props.title}</Text>

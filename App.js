@@ -6,17 +6,22 @@
 
 import React from 'react';
 import { Text, View, TextInput, Image, SafeAreaView, ScrollView } from 'react-native';
+import { NativeBaseProvider } from 'native-base';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import 'react-native-gesture-handler';
+import './config/firebase';
 
-import BottomNav from './src/components/navigations/BottomNav.js';
+import { AuthProvider } from './hooks/AuthContext';
+import RootNavigator from './src/components/navigations/rootNav';
 
 export default function App() {
   return (
     <NavigationContainer>
-      <BottomNav/>
+        <AuthProvider>
+          <NativeBaseProvider>
+            <RootNavigator />
+          </NativeBaseProvider>
+        </AuthProvider>
     </NavigationContainer>
   );
 }

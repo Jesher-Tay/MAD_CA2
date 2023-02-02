@@ -7,8 +7,24 @@ import StackNavigator from './StackNavigator.js';
 import OtherProfileStackNav from './OtherProfileStackNav';
 import { EvilIcons, Ionicons, Entypo, MaterialIcons, Feather } from '@expo/vector-icons';
 
+import { useAuth } from '../../../hooks/AuthContext';
+
+import { getAuth, signOut } from 'firebase/auth';
+
+const auth = getAuth();
+
 
 function BottomNav() {
+    const { createReview, user, image, caption, address, desc } = useAuth();
+
+    const createPost = async () => {
+        try {
+            await createReview(image, caption, address, desc);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     const Tab = createBottomTabNavigator();
     return (
         <Tab.Navigator initialRouteName='Profile'
@@ -51,7 +67,7 @@ function BottomNav() {
                     headerRight: () => {
                         return (
                             <View className='px-2'>
-                                <TouchableOpacity><Text className='text-blue-500 font-semibold'>Post</Text></TouchableOpacity>
+                                <TouchableOpacity onPress={createPost}><Text className='text-blue-500 font-semibold'>Post</Text></TouchableOpacity>
                             </View>
                         )
                     }
@@ -59,7 +75,14 @@ function BottomNav() {
                 />
             <Tab.Screen name='Profile' component={Profile}
                 options={{
-                    headerTitle: '@username1234',
+                    headerTitle: 'username',
+                    headerLeft: () => {
+                        return(
+                        <TouchableOpacity className='flex-col px-2 justify-center items-center' onPress={() => signOut(auth)}>
+                            <Text className='font-semibold text-base text-red-400'>Log Out</Text>
+                        </TouchableOpacity>
+                        )
+                    },
                     headerRight: () => {
                         return (
                             <View className='px-2'>

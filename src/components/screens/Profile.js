@@ -9,43 +9,15 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import CardRow from '../CardRow.js';
-
-
+import { useAuth } from '../../../hooks/AuthContext';
+import ReviewCards from '../reviewCard.js';
 
 function ReviewScreen() {
+  const navigation = useNavigation();
+  const { user, profileGetReview, reviewData } = useAuth();
+
   return (
-    <ScrollView
-      scrollEventThrottle={16}
-      contentContainerStyle={{flexDirection: 'row', justifyContent: 'space-between', flexWrap:'wrap'}}
-      className='overflow-scroll gap-0.5'>
-          <View className='w-32 h-32'>
-            <Image className='w-full h-full' source={require('../../../Images/ice.jpg')}/>
-          </View>
-          <View className='w-32 h-32'>
-            <Image className='w-full h-full' source={require('../../../Images/ice.jpg')}/>
-          </View>
-          <View className='w-32 h-32'>
-            <Image className='w-full h-full' source={require('../../../Images/ice.jpg')}/>
-          </View>
-          <View className='w-32 h-32'>
-            <Image className='w-full h-full' source={require('../../../Images/ice.jpg')}/>
-          </View>
-          <View className='w-32 h-32'>
-            <Image className='w-full h-full' source={require('../../../Images/ice.jpg')}/>
-          </View>
-          <View className='w-32 h-32'>
-            <Image className='w-full h-full' source={require('../../../Images/ice.jpg')}/>
-          </View>
-          <View className='w-32 h-32'>
-            <Image className='w-full h-full' source={require('../../../Images/ice.jpg')}/>
-          </View>
-          <View className='w-32 h-32'>
-            <Image className='w-full h-full' source={require('../../../Images/ice.jpg')}/>
-          </View>
-          <View className='w-32 h-32'>
-            <Image className='w-full h-full' source={require('../../../Images/ice.jpg')}/>
-          </View>
-    </ScrollView>
+      <ReviewCards />
   );
 }
 
@@ -95,7 +67,7 @@ export default function Profile() {
           <View className='w-24 h-24 self-center'>
             <Image className='w-full h-full rounded-full' source={require('../../../Images/Pizza.jpg')}/>
           </View>
-          <Text className='text-xl text-center'>Firstname LastName</Text>
+          <Text className='text-xl text-center'></Text>
           <Text className='text-base text-center'>Level 1 Reviewer • City</Text>
           <View className='flex-row justify-evenly'>
             <View className='flex-col'>

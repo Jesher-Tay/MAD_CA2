@@ -5,3 +5,6 @@ export {default as Review} from './Review';
 export {default as DailyFeed} from './DailyFeed';
 export {default as OtherProfile} from './OtherProfile';
 export {default as WishList} from './WishList';
+export {default as Login} from './Login';
+export {default as SignUp} from './SignUp';
+export {default as Loading} from './loading';
