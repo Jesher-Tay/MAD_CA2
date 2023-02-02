@@ -59,6 +59,7 @@ function WishListScreen() {
 }
 
 export default function Profile() {
+  const { user } = useAuth();
   const Tabs = createMaterialTopTabNavigator();
   return (
     <SafeAreaView>
