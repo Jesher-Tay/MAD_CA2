@@ -25,6 +25,11 @@ export const AuthProvider = ({ children }) => {
     const [address, setAddress] = useState(null);
     const [desc, setDesc] = useState(null);
     const [reviewData, setReviewData] = useState([]);
+    const [modalData, setModalData] = useState(false);
+    const [imageUrl, setImageUrl] = useState({uri: 'https://firebasestorage.googleapis.com/v0/b/mad-ca3-54f72.appspot.com/o/images%2Flol.jfif?alt=media&token=8300b08e-a853-4879-9524-f5f169f19ec8'});
+    const [cap, setCap] = useState('filler');
+    const [add, setAdd] = useState('filler');
+    const [des, setDes] = useState('filler');
 
     const signUp = async (email, password, username) => {
         try {
@@ -165,7 +170,7 @@ export const AuthProvider = ({ children }) => {
             const q = query(collection(db, `review/${user.uid}/post`));
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
-                console.log(doc.id);
+                // console.log(doc.id);
                 reviewData.findIndex((item) => item.id === doc.id) === -1 ? setReviewData(reviewData => reviewData.concat(doc)) : console.log('Post already exist');
             });
         } catch (error) {
@@ -173,6 +178,19 @@ export const AuthProvider = ({ children }) => {
         }
         return reviewData;
     }
+
+    // const setModal = async (reviewId) => {
+    //     try {
+    //         const q = query(collection(db, `review/${user.uid}/post`), where('id', '==', reviewId));
+    //         const querySnapshot = await getDocs(q);
+    //         querySnapshot.forEach((doc) => {
+    //             console.log(doc.id);
+    //             setModalData({show: true, data: doc.data()})
+    //         });
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 
 
 
@@ -195,9 +213,19 @@ export const AuthProvider = ({ children }) => {
         address,
         desc,
         reviewData,
+        modalData,
+        imageUrl,
+        cap,
+        add,
+        des,
         setCaption,
         setAddress,
-        setDesc
+        setDesc,
+        setModalData,
+        setImageUrl,
+        setCap,
+        setAdd,
+        setDes
     }
 
     return (

@@ -6,7 +6,6 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import StackNavigator from './StackNavigator.js';
 import OtherProfileStackNav from './OtherProfileStackNav';
 import { EvilIcons, Ionicons, Entypo, MaterialIcons, Feather } from '@expo/vector-icons';
-
 import { useAuth } from '../../../hooks/AuthContext';
 
 import { getAuth, signOut } from 'firebase/auth';

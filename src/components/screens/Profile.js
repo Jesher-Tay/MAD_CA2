@@ -59,6 +59,7 @@ function WishListScreen() {
 }
 
 export default function Profile() {
+  const { user } = useAuth();
   const Tabs = createMaterialTopTabNavigator();
   return (
     <SafeAreaView>
@@ -67,7 +68,7 @@ export default function Profile() {
           <View className='w-24 h-24 self-center'>
             <Image className='w-full h-full rounded-full' source={require('../../../Images/Pizza.jpg')}/>
           </View>
-          <Text className='text-xl text-center'></Text>
+          <Text className='text-xl text-center'>{user.username}</Text>
           <Text className='text-base text-center'>Level 1 Reviewer • City</Text>
           <View className='flex-row justify-evenly'>
             <View className='flex-col'>

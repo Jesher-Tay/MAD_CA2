@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Explore, Eatery, WishList } from '../screens';
+import ReviewDetails from '../screens/ReviewDetails';
 import { Entypo } from '@expo/vector-icons';
 
 function StackNavigator() {
@@ -21,6 +22,7 @@ function StackNavigator() {
           headerBackImage: () => <Entypo name='chevron-left' size={32} color='black' />,
           headerBackTitleVisible: false,
         }} />
+
     </Stack.Navigator>
   );
 }
