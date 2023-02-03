@@ -15,6 +15,7 @@ import { AuthProvider } from './hooks/AuthContext';
 import RootNavigator from './src/components/navigations/rootNav';
 
 export default function App() {
+  const { user } = useAuth();
   return (
     <NavigationContainer>
         <AuthProvider>
