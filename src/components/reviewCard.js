@@ -5,9 +5,7 @@ import { useAuth } from '../../hooks/AuthContext';
 import { useNavigation } from '@react-navigation/native';
 
 export default ReviewCards = () => {
-    const navigation = useNavigation();
     const { user, getReview, reviewData, image, modalData, setModalData, cap, imageUrl, add, des, setCap, setAdd, setImageUrl, setDes} = useAuth();
-    const [selectedId, setSelectedId] = useState();
     
     useEffect(() => {
         getReview();
